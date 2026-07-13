@@ -41,7 +41,8 @@ sparingly; ink appears only in type and the RuleSpec code block.
 3. **Max Width**: 600px centered container, 14px radius
 4. **Axiom Color Scheme** (from [axiom-brand](https://github.com/TheAxiomFoundation/axiom-brand)):
    - Warm gray (outer background): `#eceae5`
-   - Paper (header + content card): `#faf9f6` · Inset panel: `#f5f2ec`
+   - Paper (content card): `#faf9f6` · Inset panel: `#f5f2ec`
+   - Amber-wash masthead: `linear-gradient(160deg, #f9efdf, #f3e2c8)` (fallback `#f6e8d3`)
    - Ink (headings, code blocks only): `#1c1917`
    - Amber (chips, links, CTAs, headline accent): `#b45309`; brighter `#d97706` for YAML keys on ink
    - Seal hairline gradient: `#b45309 → #d97706 → #f3e5d3` (3px, under the header)
@@ -52,7 +53,7 @@ sparingly; ink appears only in type and the RuleSpec code block.
      spec on ink — amber keys, paper values, stone comments, 2px amber top border.
      One per edition, keep the conceit honest (real IDs, real dates).
    - **Edition number**: `Nº 0NN · YYYY-MM-DD` in Geist Mono, amber, in the
-     paper header bar — increments every send.
+     amber-wash masthead — increments every send.
    - **Headline accent**: the key word or phrase of the H1 in amber `#b45309`
      (mirrors the site's "Computable law for all." treatment).
    - **Artifact chips**: each story row is labeled by what kind of artifact it is
@@ -63,7 +64,7 @@ sparingly; ink appears only in type and the RuleSpec code block.
    - **∀ note**: optional standing mission note in an inset panel with a 3px
      amber left border and the ∀ glyph (U+2200).
 6. **Mailchimp Variables**: Footer includes merge tags like `*|EMAIL|*`, `*|UNSUB|*`, `*|UPDATE_PROFILE|*`, `*|LIST:ADDRESSLINE|*`
-7. **Logo**: Gradient wordmark on the paper header bar (matches the site):
+7. **Logo**: Gradient wordmark on the amber-wash masthead:
    `https://raw.githubusercontent.com/TheAxiomFoundation/axiom-brand/main/png/wordmark/axiom-full-gradient-2400w.png`
    (full lockup with FOUNDATION subline — brand rule: outward-facing surfaces use
    the FULL lockup until brand recognition is established)
