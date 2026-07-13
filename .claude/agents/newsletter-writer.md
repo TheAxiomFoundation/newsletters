@@ -46,11 +46,11 @@ Use this exact HTML structure with inline styles:
 </table>
 ```
 
-The lead story may instead become the hero: headline + thesis paragraph + a short
-RuleSpec block in a light inset panel (`#f5f2ec` bg, 1px `#e7e5e4` border, 3px
-amber left edge; amber keys `#b45309`, ink values `#1c1917`, muted comments
-`#a8a29e`) + the edition's single amber CTA button. Keep the RuleSpec conceit
-honest — real durable IDs, real dates, 4–7 lines max.
+The lead story may instead become the hero: headline (key phrase in amber) +
+thesis paragraphs + an optional detail panel (`#f5f2ec` bg, 1px `#e7e5e4` border,
+3px amber left edge; mono uppercase label in amber, headline detail in ink,
+supporting line in stone) + the edition's single amber CTA button. Detail panels
+carry plain-language facts — no code or YAML blocks in newsletters.
 
 ## Brand Palette
 
