@@ -31,8 +31,8 @@ All newsletter HTML files follow this pattern:
 The design borrows Axiom's own vernacular (edition numbering, mono labels,
 artifact chips) rather than a generic marketing layout — but stays plain-language:
 no code blocks. Light and paper-first, matching axiom-foundation.org: warm-gray
-outer, paper card, amber-wash masthead, amber spent sparingly; ink appears only
-in type — no dark surfaces.
+outer with the citation-network texture, paper card, and a masthead in the
+logo's amber gradient; ink appears only in type — no dark surfaces.
 
 1. **Inline Styles**: All styling is inline (required for email compatibility)
 2. **Fonts**: Geist (headings/body) + **Geist Mono** (edition number, chips,
@@ -44,7 +44,9 @@ in type — no dark surfaces.
      citation-network texture (`assets/images/citation-network-bg.png`, applied
      as a tiling background-image on the wrapper with `#f0e7d8` fallback)
    - Paper (content card): `#faf9f6` · Inset panel: `#f5f2ec`
-   - Amber-wash masthead: `linear-gradient(160deg, #f9efdf, #f3e2c8)` (fallback `#f6e8d3`)
+   - Masthead: the logo's amber gradient `linear-gradient(135deg, #b45309, #8a3d08)`
+     (fallback `#b45309`), paper wordmark, edition number in `#fde8cd`, with a
+     3px `#8a3d08` edge below
    - Ink (type only — headings, key details): `#1c1917`
    - Amber (chips, links, CTAs, headline accent, YAML keys): `#b45309`
    - Seal hairline gradient: `#b45309 → #d97706 → #f3e5d3` (3px, under the header)
@@ -55,8 +57,8 @@ in type — no dark surfaces.
      a light inset panel — `#f5f2ec`, 1px `#e7e5e4` border, 3px amber left edge,
      mono uppercase label in amber, headline detail in ink. Plain language, no
      code or YAML.
-   - **Edition number**: `Nº 0NN · YYYY-MM-DD` in Geist Mono, amber, in the
-     amber-wash masthead — increments every send.
+   - **Edition number**: `Nº 0NN · YYYY-MM-DD` in Geist Mono, light cream
+     `#fde8cd`, in the amber-gradient masthead — increments every send.
    - **Headline accent**: the key word or phrase of the H1 in amber `#b45309`
      (mirrors the site's "Computable law for all." treatment).
    - **Artifact chips**: each story row is labeled by what kind of artifact it is
@@ -67,8 +69,8 @@ in type — no dark surfaces.
    - **∀ note**: optional standing mission note in an inset panel with a 3px
      amber left border and the ∀ glyph (U+2200).
 6. **Mailchimp Variables**: Footer includes merge tags like `*|EMAIL|*`, `*|UNSUB|*`, `*|UPDATE_PROFILE|*`, `*|LIST:ADDRESSLINE|*`
-7. **Logo**: Gradient wordmark on the amber-wash masthead:
-   `https://raw.githubusercontent.com/TheAxiomFoundation/axiom-brand/main/png/wordmark/axiom-full-gradient-2400w.png`
+7. **Logo**: Paper wordmark on the amber-gradient masthead:
+   `https://raw.githubusercontent.com/TheAxiomFoundation/axiom-brand/main/png/wordmark/axiom-full-paper-2400w.png`
    (full lockup with FOUNDATION subline — brand rule: outward-facing surfaces use
    the FULL lockup until brand recognition is established)
 
