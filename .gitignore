@@ -1,0 +1,43 @@
+# Ignore Node dependencies if you're using any Node-based build tools (e.g., gulp)
+node_modules/
+
+# Ignore any package-lock or yarn lock files
+package-lock.json
+yarn.lock
+
+# Ignore build files, if you use a build tool
+dist/
+build/
+
+# Ignore temporary files created by editors or the OS
+.DS_Store
+Thumbs.db
+
+# Ignore Mailchimp export or cache files, if any
+*.cache
+*.export
+
+# Ignore logs
+logs/
+*.log
+
+# Ignore environment variables, if any
+.env
+.env.local
+
+# Ignore sensitive information or config files if storing Mailchimp API keys
+config.js
+*.key
+*.pem
+
+# Don't commit contact lists (privacy)
+*.csv
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.coverage
+htmlcov/
+.pytest_cache/
