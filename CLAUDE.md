@@ -130,8 +130,8 @@ Never use `refs/heads/` in URLs — it can break rendering in Mailchimp
   activity ("we worked on encodings")
 - Audience: policy technologists, benefits-delivery teams, civic-tech engineers,
   funders
-- Standing footer links: Website (axiom-foundation.org), GitHub
-  (github.com/TheAxiomFoundation), Contact (hello@axiom-foundation.org)
+- Standing footer links: Website (axiom-foundation.org) and Contact
+  (hello@axiom-foundation.org)
 
 ## File Naming Conventions
 
