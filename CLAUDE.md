@@ -40,7 +40,9 @@ in type — no dark surfaces.
    (`'SFMono-Regular', Menlo, Consolas, monospace`)
 3. **Max Width**: 600px centered container, 14px radius
 4. **Axiom Color Scheme** (from [axiom-brand](https://github.com/TheAxiomFoundation/axiom-brand)):
-   - Warm gray (outer background): `#eceae5`
+   - Warm brown (outer background): `#f0e7d8`, overlaid with the app's
+     citation-network texture (`assets/images/citation-network-bg.png`, applied
+     as a tiling background-image on the wrapper with `#f0e7d8` fallback)
    - Paper (content card): `#faf9f6` · Inset panel: `#f5f2ec`
    - Amber-wash masthead: `linear-gradient(160deg, #f9efdf, #f3e2c8)` (fallback `#f6e8d3`)
    - Ink (type only — headings, key details): `#1c1917`
