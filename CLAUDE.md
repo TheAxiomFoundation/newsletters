@@ -32,7 +32,7 @@ The design concept is **the newsletter as a literate encoding** — the email
 borrows Axiom's own artifact vernacular (RuleSpec blocks, durable IDs, artifact
 chips) rather than a generic marketing layout. Light and paper-first, matching
 axiom-foundation.org: warm-gray outer, paper card and header, amber spent
-sparingly; ink appears only in type and the RuleSpec code block.
+sparingly; ink appears only in type — no dark surfaces.
 
 1. **Inline Styles**: All styling is inline (required for email compatibility)
 2. **Fonts**: Geist (headings/body) + **Geist Mono** (edition number, chips,
@@ -43,15 +43,16 @@ sparingly; ink appears only in type and the RuleSpec code block.
    - Warm gray (outer background): `#eceae5`
    - Paper (content card): `#faf9f6` · Inset panel: `#f5f2ec`
    - Amber-wash masthead: `linear-gradient(160deg, #f9efdf, #f3e2c8)` (fallback `#f6e8d3`)
-   - Ink (headings, code blocks only): `#1c1917`
-   - Amber (chips, links, CTAs, headline accent): `#b45309`; brighter `#d97706` for YAML keys on ink
+   - Ink (type only — headings, code values): `#1c1917`
+   - Amber (chips, links, CTAs, headline accent, YAML keys): `#b45309`
    - Seal hairline gradient: `#b45309 → #d97706 → #f3e5d3` (3px, under the header)
    - Body text: `#44403c` · Headings: `#1c1917` · Hairlines: `#e7e5e4`
    - Muted mono labels: `#a8a29e` · Footer text: `#8d867c`
 5. **Signature elements** (use, don't dilute):
    - **RuleSpec hero block**: the lead item rendered as a short (4–7 line) YAML
-     spec on ink — amber keys, paper values, stone comments, 2px amber top border.
-     One per edition, keep the conceit honest (real IDs, real dates).
+     spec in a light inset panel (`#f5f2ec`, 1px `#e7e5e4` border, 3px amber left
+     edge) — amber keys `#b45309`, ink values, muted comments `#a8a29e`. One per
+     edition, keep the conceit honest (real IDs, real dates).
    - **Edition number**: `Nº 0NN · YYYY-MM-DD` in Geist Mono, amber, in the
      amber-wash masthead — increments every send.
    - **Headline accent**: the key word or phrase of the H1 in amber `#b45309`

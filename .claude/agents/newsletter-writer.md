@@ -47,14 +47,15 @@ Use this exact HTML structure with inline styles:
 ```
 
 The lead story may instead become the hero: headline + thesis paragraph + a short
-RuleSpec block on ink (amber keys `#d97706`, paper values `#faf9f6`, stone
-comments `#78716c`) + the edition's single amber CTA button. Keep the RuleSpec
-conceit honest — real durable IDs, real dates, 4–7 lines max.
+RuleSpec block in a light inset panel (`#f5f2ec` bg, 1px `#e7e5e4` border, 3px
+amber left edge; amber keys `#b45309`, ink values `#1c1917`, muted comments
+`#a8a29e`) + the edition's single amber CTA button. Keep the RuleSpec conceit
+honest — real durable IDs, real dates, 4–7 lines max.
 
 ## Brand Palette
 
 - Warm-gray outer: #eceae5 · Paper header/card: #faf9f6 · Inset panel: #f5f2ec
-- Ink: #1c1917 (headings and code blocks only — surfaces stay light)
+- Ink: #1c1917 (type only — all surfaces stay light)
 - Amber: #b45309 (chips, links, CTAs) · #d97706 (amber on ink)
 - Body text: #44403c · Hairlines: #e7e5e4 · Muted mono: #a8a29e
 - Fonts: Geist (text) + Geist Mono (chips, IDs, code, link labels)
