@@ -24,35 +24,40 @@ Given a story source (markdown file, changelog excerpt, or topic), you will:
 
 ## Template Structure
 
-Use this exact HTML structure with inline styles (matches templates/axiom-newsletter-template.html):
+Stories are "artifact rows" (matches templates/axiom-newsletter-template.html): a
+mono chip naming the artifact kind, a title, a short body, and a mono arrow-link.
+Use this exact HTML structure with inline styles:
 
 ```html
-<table width="100%" cellpadding="0" cellspacing="0" style="border-bottom: 1px solid #e7e5e4;">
+<table width="100%" cellpadding="0" cellspacing="0" style="border-top: 1px solid #e7e5e4;">
     <tr>
-        <td style="padding: 28px 40px;">
-            <p style="margin: 0 0 8px 0; font-size: 10px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: #b45309;">
-                [Label, e.g. New encodings]
-            </p>
-            <p style="margin: 0 0 8px 0; color: #1c1917; font-weight: 700; font-size: 16px;">
-                [Story title in sentence case]
-            </p>
-            <p style="margin: 0 0 16px 0; font-size: 13px; line-height: 1.6; color: #44403c;">
-                [Body text leading with the concrete result. Inline links use
+        <td class="chip-col" style="width: 92px; vertical-align: top; padding: 20px 0;">
+            <span style="display: inline-block; font-family: 'Geist Mono', 'SFMono-Regular', Menlo, Consolas, monospace; font-size: 10.5px; font-weight: 500; color: #b45309; border: 1px solid #d9b28a; border-radius: 5px; padding: 3px 9px;">[chip: corpus|engine|api|event|research]</span>
+        </td>
+        <td class="chip-body" style="vertical-align: top; padding: 20px 0;">
+            <p style="margin: 0 0 6px 0; color: #1c1917; font-weight: 650; font-size: 15.5px;">[Story title in sentence case]</p>
+            <p style="margin: 0 0 10px 0; font-size: 13.5px; line-height: 1.6; color: #44403c;">
+                [Body leading with the concrete result. Inline links use
                 <a href="URL" style="color: #b45309; text-decoration: none; font-weight: 600;">amber, semibold, no underline</a>.]
             </p>
-            <a href="URL" style="display: inline-block; padding: 12px 24px; background-color: #b45309; color: #FFFFFF; text-decoration: none; font-weight: 600; font-size: 14px; border-radius: 6px;">
-                [Call to action] &rarr;
-            </a>
+            <a href="URL" style="font-family: 'Geist Mono', 'SFMono-Regular', Menlo, Consolas, monospace; font-size: 12px; font-weight: 600; color: #b45309; text-decoration: none;">[link-label] &rarr;</a>
         </td>
     </tr>
 </table>
 ```
 
+The lead story may instead become the hero: headline + thesis paragraph + a short
+RuleSpec block on ink (amber keys `#d97706`, paper values `#faf9f6`, stone
+comments `#78716c`) + the edition's single amber CTA button. Keep the RuleSpec
+conceit honest — real durable IDs, real dates, 4–7 lines max.
+
 ## Brand Palette
 
-- Ink: #1c1917 (headings) · Paper: #faf9f6 (card background)
-- Amber: #b45309 (labels, links, CTAs) · Gradient: #b45309 → #8a3d08 (hero only)
-- Body text: #44403c · Borders: #e7e5e4 · Card fill: #f5f2ec
+- Parchment outer: #e9e3d8 · Paper card: #faf9f6 · Inset panel: #f5f2ec
+- Ink: #1c1917 (header bar, code blocks, headings)
+- Amber: #b45309 (chips, links, CTAs) · #d97706 (amber on ink)
+- Body text: #44403c · Hairlines: #e7e5e4 · Muted mono: #a8a29e
+- Fonts: Geist (text) + Geist Mono (chips, IDs, code, link labels)
 
 ## Email Compatibility Rules
 

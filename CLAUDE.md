@@ -28,23 +28,42 @@ axiom-newsletters/
 
 All newsletter HTML files follow this pattern:
 
+The design concept is **the newsletter as a literate encoding** — the email
+borrows Axiom's own artifact vernacular (RuleSpec blocks, durable IDs, artifact
+chips) rather than a generic marketing layout. Paper-first: parchment outer,
+paper card, ink header bar, amber spent sparingly.
+
 1. **Inline Styles**: All styling is inline (required for email compatibility)
-2. **Font**: Geist loaded from Google Fonts, with system-font fallbacks
-3. **Max Width**: 600px centered container
+2. **Fonts**: Geist (headings/body) + **Geist Mono** (edition number, chips,
+   code, link labels) from Google Fonts, with system fallbacks
+   (`'SFMono-Regular', Menlo, Consolas, monospace`)
+3. **Max Width**: 600px centered container, 14px radius
 4. **Axiom Color Scheme** (from [axiom-brand](https://github.com/TheAxiomFoundation/axiom-brand)):
-   - Ink (outer background, headings): `#1c1917`
-   - Paper (content card background): `#faf9f6`
-   - Amber gradient (hero, accents, CTAs): `#b45309 → #8a3d08`
-   - Amber accent on ink backgrounds: `#d97706`
-   - Light amber text on gradient: `#fde8cd`
-   - Body text: `#44403c` · Borders: `#e7e5e4` · Card fill: `#f5f2ec`
-   - Footer muted text: `#a8a29e` / `#78716c`
-5. **Mailchimp Variables**: Footer includes merge tags like `*|EMAIL|*`, `*|UNSUB|*`, `*|UPDATE_PROFILE|*`, `*|LIST:ADDRESSLINE|*`
-6. **Logo**: Paper wordmark from axiom-brand:
+   - Parchment (outer background): `#e9e3d8`
+   - Ink (header bar, code blocks): `#1c1917`
+   - Paper (content card): `#faf9f6` · Inset panel: `#f5f2ec`
+   - Amber (chips, links, CTAs, YAML keys on ink): `#b45309`; brighter `#d97706` on ink
+   - Seal band gradient: `#b45309 → #8a3d08` (4px, under the header)
+   - Body text: `#44403c` · Headings: `#1c1917` · Hairlines: `#e7e5e4`
+   - Muted mono labels: `#a8a29e` · Footer text: `#8d867c`
+5. **Signature elements** (use, don't dilute):
+   - **RuleSpec hero block**: the lead item rendered as a short (4–7 line) YAML
+     spec on ink — amber keys, paper values, stone comments, 2px amber top border.
+     One per edition, keep the conceit honest (real IDs, real dates).
+   - **Edition number**: `Nº 0NN · YYYY-MM-DD` in Geist Mono, amber, in the ink
+     header bar — increments every send.
+   - **Artifact chips**: each story row is labeled by what kind of artifact it is
+     (`corpus`, `engine`, `api`, `event`, `research`) — lowercase mono chip with
+     1px `#d9b28a` border. Structure encodes content type, never decoration.
+   - **One CTA button** per edition (amber, hero). All other links are mono
+     arrow-links (`label →`) in amber.
+   - **∀ note**: optional standing mission note in an inset panel with a 3px
+     amber left border and the ∀ glyph (U+2200).
+6. **Mailchimp Variables**: Footer includes merge tags like `*|EMAIL|*`, `*|UNSUB|*`, `*|UPDATE_PROFILE|*`, `*|LIST:ADDRESSLINE|*`
+7. **Logo**: Paper wordmark on the ink header bar:
    `https://raw.githubusercontent.com/TheAxiomFoundation/axiom-brand/main/png/wordmark/axiom-full-paper-2400w.png`
    (full lockup with FOUNDATION subline — brand rule: outward-facing surfaces use
-   the FULL lockup until brand recognition is established). Banner-style header
-   images also exist at `png/email/newsletter-header-*.png` (1200×300).
+   the FULL lockup until brand recognition is established)
 
 ## Creating New Newsletters
 

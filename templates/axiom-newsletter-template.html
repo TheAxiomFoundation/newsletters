@@ -3,167 +3,160 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     <style type="text/css">
         @media only screen and (max-width: 620px) {
             .container { width: 100% !important; }
-            .content { padding: 32px 20px !important; }
-            .header { padding: 24px 20px !important; }
-            .footer { padding: 20px !important; }
-            .hero-title { font-size: 28px !important; line-height: 1.15 !important; }
-            .stat-grid { display: block !important; width: 100% !important; }
-            .stat-item { display: block !important; width: 100% !important; margin-bottom: 16px !important; padding-left: 0 !important; padding-right: 0 !important; }
+            .pad { padding-left: 24px !important; padding-right: 24px !important; }
+            .hero-title { font-size: 26px !important; line-height: 1.15 !important; }
+            .codeblock { font-size: 11px !important; }
+            .chip-col { display: block !important; width: 100% !important; padding-bottom: 0 !important; }
+            .chip-body { display: block !important; width: 100% !important; padding-top: 10px !important; }
         }
     </style>
 </head>
-<body style="margin: 0; padding: 0; background-color: #1c1917; font-family: 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;">
+<body style="margin: 0; padding: 0; background-color: #e9e3d8; font-family: 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;">
 
     <!-- Wrapper -->
-    <table width="100%" cellpadding="0" cellspacing="0" style="background-color: #1c1917;">
+    <table width="100%" cellpadding="0" cellspacing="0" style="background-color: #e9e3d8;">
         <tr>
-            <td align="center" style="padding: 32px 12px;">
+            <td align="center" style="padding: 36px 12px;">
 
                 <!-- Main Container -->
                 <table class="container" width="600" cellpadding="0" cellspacing="0" style="max-width: 600px; width: 100%;">
 
-                    <!-- Header Bar -->
+                    <!-- Ink header bar: paper wordmark on ink -->
                     <tr>
-                        <td style="padding: 0 0 24px 0;">
+                        <td class="pad" style="background-color: #1c1917; border-radius: 14px 14px 0 0; padding: 26px 44px;">
                             <table width="100%" cellpadding="0" cellspacing="0">
                                 <tr>
                                     <td>
-                                        <img src="https://raw.githubusercontent.com/TheAxiomFoundation/axiom-brand/main/png/wordmark/axiom-full-paper-2400w.png" alt="Axiom Foundation" style="height: 36px; width: auto;">
+                                        <img src="https://raw.githubusercontent.com/TheAxiomFoundation/axiom-brand/main/png/wordmark/axiom-full-paper-2400w.png" alt="Axiom Foundation" style="height: 34px; width: auto;">
                                     </td>
-                                    <td align="right" style="font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: #d97706;">
-                                        Month D, YYYY
+                                    <td align="right" style="font-family: 'Geist Mono', 'SFMono-Regular', Menlo, Consolas, monospace; font-size: 11px; font-weight: 500; color: #d97706; letter-spacing: 0.04em;">
+                                        N&ordm;&nbsp;0NN &middot; YYYY-MM-DD
                                     </td>
                                 </tr>
                             </table>
                         </td>
                     </tr>
 
-                    <!-- Hero Section -->
+                    <!-- Amber seal band -->
                     <tr>
-                        <td style="background: linear-gradient(165deg, #b45309 0%, #9c4708 55%, #8a3d08 100%); border-radius: 16px 16px 0 0; padding: 48px 40px 40px 40px;">
-                            <div style="width: 48px; height: 3px; background-color: #faf9f6; opacity: 0.9; margin-bottom: 24px; border-radius: 2px;"></div>
-
-                            <p style="margin: 0 0 12px 0; font-size: 12px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: #fde8cd;">
-                                [Kicker &middot; e.g. This week at Axiom]
-                            </p>
-
-                            <h1 class="hero-title" style="margin: 0 0 20px 0; font-size: 28px; font-weight: 800; color: #FFFFFF; line-height: 1.15; letter-spacing: -0.02em;">
-                                [Lead story headline in sentence case]
-                            </h1>
-
-                            <p style="margin: 0; font-size: 15px; line-height: 1.65; color: #fde8cd; font-weight: 400;">
-                                [One or two sentences expanding the lead story &mdash; what it is, why it matters, what to do next.]
-                            </p>
-                        </td>
+                        <td style="height: 4px; line-height: 4px; font-size: 4px; background: linear-gradient(90deg, #b45309 0%, #8a3d08 100%); background-color: #b45309;">&nbsp;</td>
                     </tr>
 
-                    <!-- Main Content Card -->
+                    <!-- Hero: the thesis -->
                     <tr>
-                        <td style="background-color: #faf9f6; padding: 0;">
+                        <td class="pad" style="background-color: #faf9f6; padding: 44px 44px 36px 44px;">
+                            <h1 class="hero-title" style="margin: 0 0 16px 0; font-size: 31px; font-weight: 750; color: #1c1917; line-height: 1.12; letter-spacing: -0.025em;">
+                                [Lead headline in sentence case.]
+                            </h1>
+                            <p style="margin: 0 0 28px 0; font-size: 15px; line-height: 1.65; color: #44403c;">
+                                [One to three sentences on the lead story &mdash; the concrete result first, then why it matters.]
+                            </p>
 
-                            <!-- Section (repeat this table per story) -->
-                            <table width="100%" cellpadding="0" cellspacing="0" style="border-bottom: 1px solid #e7e5e4;">
+                            <!-- Signature: the lead item, as a RuleSpec (optional — keep short, 4-7 lines) -->
+                            <table width="100%" cellpadding="0" cellspacing="0">
                                 <tr>
-                                    <td style="padding: 28px 40px;">
-                                        <p style="margin: 0 0 8px 0; font-size: 10px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: #b45309;">
-                                            [Label &middot; e.g. New encodings]
-                                        </p>
-                                        <p style="margin: 0 0 8px 0; color: #1c1917; font-weight: 700; font-size: 16px;">
-                                            [Story title]
-                                        </p>
-                                        <p style="margin: 0 0 16px 0; font-size: 13px; line-height: 1.6; color: #44403c;">
-                                            [Story body. Link text like <a href="https://axiom-foundation.org" style="color: #b45309; text-decoration: none; font-weight: 600;">this</a>. Lead with the concrete result.]
-                                        </p>
-                                        <!-- Optional image: absolute URL only, committed to assets/images/ on main first -->
-                                        <!-- <img src="https://raw.githubusercontent.com/TheAxiomFoundation/newsletters/main/assets/images/EXAMPLE.png" alt="[Describe the image]" style="width: 100%; height: auto; border-radius: 8px; border: 1px solid #e7e5e4; margin-bottom: 16px;"> -->
-                                        <a href="https://axiom-foundation.org" style="display: inline-block; padding: 12px 24px; background-color: #b45309; color: #FFFFFF; text-decoration: none; font-weight: 600; font-size: 14px; border-radius: 6px;">
+                                    <td style="background-color: #1c1917; border-radius: 10px; border-top: 2px solid #b45309; padding: 20px 24px;">
+                                        <div class="codeblock" style="font-family: 'Geist Mono', 'SFMono-Regular', Menlo, Consolas, monospace; font-size: 12.5px; line-height: 1.75; color: #faf9f6;">
+                                            <div><span style="color: #d97706;">format:</span> rulespec/v1</div>
+                                            <div><span style="color: #d97706;">id:</span> axiom:[path/to/story]#[rule_name]</div>
+                                            <div><span style="color: #d97706;">effective:</span> YYYY-MM-DD..&nbsp;&nbsp;<span style="color: #78716c;"># [comment]</span></div>
+                                            <div><span style="color: #d97706;">sources:</span></div>
+                                            <div>&nbsp;&nbsp;- [source link or citation]</div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <table cellpadding="0" cellspacing="0" style="margin-top: 28px;">
+                                <tr>
+                                    <td style="background-color: #b45309; border-radius: 7px;">
+                                        <a href="https://axiom-foundation.org" style="display: inline-block; padding: 13px 26px; color: #FFFFFF; text-decoration: none; font-weight: 600; font-size: 14px;">
                                             [Call to action] &rarr;
                                         </a>
                                     </td>
                                 </tr>
                             </table>
-
-                            <!-- Two-column stat/update grid (optional) -->
-                            <table width="100%" cellpadding="0" cellspacing="0" style="border-bottom: 1px solid #e7e5e4;">
-                                <tr>
-                                    <td style="padding: 28px 40px;">
-                                        <p style="margin: 0 0 16px 0; font-size: 10px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: #b45309;">
-                                            [Grid label &middot; e.g. Across the corpus]
-                                        </p>
-                                        <table class="stat-grid" width="100%" cellpadding="0" cellspacing="0">
-                                            <tr>
-                                                <td class="stat-item" style="width: 50%; vertical-align: top; padding-right: 10px;">
-                                                    <table width="100%" cellpadding="0" cellspacing="0" style="background-color: #f5f2ec; border-radius: 8px; height: 100%;">
-                                                        <tr>
-                                                            <td style="padding: 16px 20px;">
-                                                                <a href="https://github.com/TheAxiomFoundation/rulespec-us" style="margin: 0 0 10px 0; font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #b45309; text-decoration: none; display: block;">rulespec-us <span style="color: #b45309;">&rarr;</span></a>
-                                                                <ul style="margin: 0; padding-left: 18px; font-size: 12px; line-height: 1.5; color: #44403c;">
-                                                                    <li style="margin-bottom: 6px;">[Update]</li>
-                                                                    <li style="margin-bottom: 0;">[Update]</li>
-                                                                </ul>
-                                                            </td>
-                                                        </tr>
-                                                    </table>
-                                                </td>
-                                                <td class="stat-item" style="width: 50%; vertical-align: top; padding-left: 10px;">
-                                                    <table width="100%" cellpadding="0" cellspacing="0" style="background-color: #f5f2ec; border-radius: 8px; height: 100%;">
-                                                        <tr>
-                                                            <td style="padding: 16px 20px;">
-                                                                <a href="https://github.com/TheAxiomFoundation/axiom-rules-engine" style="margin: 0 0 10px 0; font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #b45309; text-decoration: none; display: block;">rules engine <span style="color: #b45309;">&rarr;</span></a>
-                                                                <ul style="margin: 0; padding-left: 18px; font-size: 12px; line-height: 1.5; color: #44403c;">
-                                                                    <li style="margin-bottom: 6px;">[Update]</li>
-                                                                    <li style="margin-bottom: 0;">[Update]</li>
-                                                                </ul>
-                                                            </td>
-                                                        </tr>
-                                                    </table>
-                                                </td>
-                                            </tr>
-                                        </table>
-                                    </td>
-                                </tr>
-                            </table>
-
-                            <!-- Sign off -->
-                            <table width="100%" cellpadding="0" cellspacing="0" style="border-radius: 0 0 16px 16px; overflow: hidden;">
-                                <tr>
-                                    <td style="padding: 32px 40px; background-color: #faf9f6; border-top: 1px solid #e7e5e4;">
-                                        <p style="margin: 0; font-size: 14px; line-height: 1.6; color: #44403c;">
-                                            Best wishes,<br>
-                                            <span style="color: #1c1917; font-weight: 600;">The Axiom Foundation team</span>
-                                        </p>
-                                    </td>
-                                </tr>
-                            </table>
-
                         </td>
                     </tr>
 
-                    <!-- Footer -->
+                    <!-- Artifact rows -->
                     <tr>
-                        <td style="padding: 32px 0 0 0;">
-                            <!-- Social Links -->
-                            <table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom: 20px;">
+                        <td class="pad" style="background-color: #faf9f6; padding: 8px 44px 12px 44px;">
+                            <table width="100%" cellpadding="0" cellspacing="0">
                                 <tr>
-                                    <td align="center">
-                                        <a href="https://axiom-foundation.org" style="color: #d97706; text-decoration: none; font-size: 12px; font-weight: 500; margin: 0 16px;">Website</a>
-                                        <a href="https://github.com/TheAxiomFoundation" style="color: #d97706; text-decoration: none; font-size: 12px; font-weight: 500; margin: 0 16px;">GitHub</a>
-                                        <a href="mailto:hello@axiom-foundation.org" style="color: #d97706; text-decoration: none; font-size: 12px; font-weight: 500; margin: 0 16px;">Contact</a>
+                                    <td style="border-top: 1px solid #e7e5e4; padding: 26px 0 6px 0; font-family: 'Geist Mono', 'SFMono-Regular', Menlo, Consolas, monospace; font-size: 10px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #a8a29e;">
+                                        [Section label, e.g. What ships today]
                                     </td>
                                 </tr>
                             </table>
 
-                            <!-- Mailchimp Footer -->
+                            <!-- Artifact row (repeat per story; chip names the artifact kind: corpus / engine / api / event / research) -->
                             <table width="100%" cellpadding="0" cellspacing="0">
                                 <tr>
-                                    <td align="center" style="font-size: 11px; line-height: 1.6; color: #a8a29e;">
-                                        This email was sent to <a href="mailto:*|EMAIL|*" style="color: #a8a29e;">*|EMAIL|*</a><br>
-                                        <a href="*|UNSUB|*" style="color: #a8a29e;">Unsubscribe</a> &middot; <a href="*|UPDATE_PROFILE|*" style="color: #a8a29e;">Update preferences</a><br>
-                                        <span style="color: #78716c;">*|LIST:ADDRESSLINE|*</span>
+                                    <td class="chip-col" style="width: 92px; vertical-align: top; padding: 20px 0;">
+                                        <span style="display: inline-block; font-family: 'Geist Mono', 'SFMono-Regular', Menlo, Consolas, monospace; font-size: 10.5px; font-weight: 500; color: #b45309; border: 1px solid #d9b28a; border-radius: 5px; padding: 3px 9px;">[chip]</span>
+                                    </td>
+                                    <td class="chip-body" style="vertical-align: top; padding: 20px 0;">
+                                        <p style="margin: 0 0 6px 0; color: #1c1917; font-weight: 650; font-size: 15.5px;">[Story title in sentence case]</p>
+                                        <p style="margin: 0 0 10px 0; font-size: 13.5px; line-height: 1.6; color: #44403c;">
+                                            [Story body &mdash; concrete result first. Optional image: absolute URL only, committed to assets/images/ on main first.]
+                                        </p>
+                                        <a href="https://github.com/TheAxiomFoundation" style="font-family: 'Geist Mono', 'SFMono-Regular', Menlo, Consolas, monospace; font-size: 12px; font-weight: 600; color: #b45309; text-decoration: none;">[link-label] &rarr;</a>
+                                    </td>
+                                </tr>
+                            </table>
+                            <!-- Additional rows: copy the table above and add style="border-top: 1px solid #e7e5e4;" -->
+                        </td>
+                    </tr>
+
+                    <!-- Why note (optional standing element) -->
+                    <tr>
+                        <td class="pad" style="background-color: #faf9f6; padding: 12px 44px 8px 44px;">
+                            <table width="100%" cellpadding="0" cellspacing="0">
+                                <tr>
+                                    <td style="background-color: #f5f2ec; border-left: 3px solid #b45309; border-radius: 0 10px 10px 0; padding: 20px 24px;">
+                                        <p style="margin: 0 0 8px 0; font-size: 20px; line-height: 1; color: #b45309; font-weight: 400;">&#8704;</p>
+                                        <p style="margin: 0; font-size: 14px; line-height: 1.65; color: #44403c;">
+                                            [A short standing note on the mission, or a pull-quote from the work.]
+                                        </p>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+
+                    <!-- Sign off -->
+                    <tr>
+                        <td class="pad" style="background-color: #faf9f6; border-radius: 0 0 14px 14px; padding: 28px 44px 36px 44px;">
+                            <p style="margin: 0; font-size: 14px; line-height: 1.6; color: #44403c;">
+                                Best wishes,<br>
+                                <span style="color: #1c1917; font-weight: 600;">The Axiom Foundation team</span>
+                            </p>
+                        </td>
+                    </tr>
+
+                    <!-- Footer on parchment -->
+                    <tr>
+                        <td style="padding: 28px 0 0 0;">
+                            <table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom: 18px;">
+                                <tr>
+                                    <td align="center" style="font-family: 'Geist Mono', 'SFMono-Regular', Menlo, Consolas, monospace; font-size: 11.5px;">
+                                        <a href="https://axiom-foundation.org" style="color: #b45309; text-decoration: none; font-weight: 500; margin: 0 14px;">website</a>
+                                        <a href="https://github.com/TheAxiomFoundation" style="color: #b45309; text-decoration: none; font-weight: 500; margin: 0 14px;">github</a>
+                                        <a href="mailto:hello@axiom-foundation.org" style="color: #b45309; text-decoration: none; font-weight: 500; margin: 0 14px;">contact</a>
+                                    </td>
+                                </tr>
+                            </table>
+                            <table width="100%" cellpadding="0" cellspacing="0">
+                                <tr>
+                                    <td align="center" style="font-size: 11px; line-height: 1.6; color: #8d867c;">
+                                        This email was sent to <a href="mailto:*|EMAIL|*" style="color: #8d867c;">*|EMAIL|*</a><br>
+                                        <a href="*|UNSUB|*" style="color: #8d867c;">Unsubscribe</a> &middot; <a href="*|UPDATE_PROFILE|*" style="color: #8d867c;">Update preferences</a><br>
+                                        <span style="color: #a59d92;">*|LIST:ADDRESSLINE|*</span>
                                     </td>
                                 </tr>
                             </table>
