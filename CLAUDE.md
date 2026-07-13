@@ -30,8 +30,9 @@ All newsletter HTML files follow this pattern:
 
 The design concept is **the newsletter as a literate encoding** — the email
 borrows Axiom's own artifact vernacular (RuleSpec blocks, durable IDs, artifact
-chips) rather than a generic marketing layout. Paper-first: parchment outer,
-paper card, ink header bar, amber spent sparingly.
+chips) rather than a generic marketing layout. Light and paper-first, matching
+axiom-foundation.org: warm-gray outer, paper card and header, amber spent
+sparingly; ink appears only in type and the RuleSpec code block.
 
 1. **Inline Styles**: All styling is inline (required for email compatibility)
 2. **Fonts**: Geist (headings/body) + **Geist Mono** (edition number, chips,
@@ -39,19 +40,21 @@ paper card, ink header bar, amber spent sparingly.
    (`'SFMono-Regular', Menlo, Consolas, monospace`)
 3. **Max Width**: 600px centered container, 14px radius
 4. **Axiom Color Scheme** (from [axiom-brand](https://github.com/TheAxiomFoundation/axiom-brand)):
-   - Parchment (outer background): `#e9e3d8`
-   - Ink (header bar, code blocks): `#1c1917`
-   - Paper (content card): `#faf9f6` · Inset panel: `#f5f2ec`
-   - Amber (chips, links, CTAs, YAML keys on ink): `#b45309`; brighter `#d97706` on ink
-   - Seal band gradient: `#b45309 → #8a3d08` (4px, under the header)
+   - Warm gray (outer background): `#eceae5`
+   - Paper (header + content card): `#faf9f6` · Inset panel: `#f5f2ec`
+   - Ink (headings, code blocks only): `#1c1917`
+   - Amber (chips, links, CTAs, headline accent): `#b45309`; brighter `#d97706` for YAML keys on ink
+   - Seal hairline gradient: `#b45309 → #d97706 → #f3e5d3` (3px, under the header)
    - Body text: `#44403c` · Headings: `#1c1917` · Hairlines: `#e7e5e4`
    - Muted mono labels: `#a8a29e` · Footer text: `#8d867c`
 5. **Signature elements** (use, don't dilute):
    - **RuleSpec hero block**: the lead item rendered as a short (4–7 line) YAML
      spec on ink — amber keys, paper values, stone comments, 2px amber top border.
      One per edition, keep the conceit honest (real IDs, real dates).
-   - **Edition number**: `Nº 0NN · YYYY-MM-DD` in Geist Mono, amber, in the ink
-     header bar — increments every send.
+   - **Edition number**: `Nº 0NN · YYYY-MM-DD` in Geist Mono, amber, in the
+     paper header bar — increments every send.
+   - **Headline accent**: the key word or phrase of the H1 in amber `#b45309`
+     (mirrors the site's "Computable law for all." treatment).
    - **Artifact chips**: each story row is labeled by what kind of artifact it is
      (`corpus`, `engine`, `api`, `event`, `research`) — lowercase mono chip with
      1px `#d9b28a` border. Structure encodes content type, never decoration.
@@ -60,8 +63,8 @@ paper card, ink header bar, amber spent sparingly.
    - **∀ note**: optional standing mission note in an inset panel with a 3px
      amber left border and the ∀ glyph (U+2200).
 6. **Mailchimp Variables**: Footer includes merge tags like `*|EMAIL|*`, `*|UNSUB|*`, `*|UPDATE_PROFILE|*`, `*|LIST:ADDRESSLINE|*`
-7. **Logo**: Paper wordmark on the ink header bar:
-   `https://raw.githubusercontent.com/TheAxiomFoundation/axiom-brand/main/png/wordmark/axiom-full-paper-2400w.png`
+7. **Logo**: Gradient wordmark on the paper header bar (matches the site):
+   `https://raw.githubusercontent.com/TheAxiomFoundation/axiom-brand/main/png/wordmark/axiom-full-gradient-2400w.png`
    (full lockup with FOUNDATION subline — brand rule: outward-facing surfaces use
    the FULL lockup until brand recognition is established)
 

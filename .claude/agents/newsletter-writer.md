@@ -53,8 +53,8 @@ conceit honest — real durable IDs, real dates, 4–7 lines max.
 
 ## Brand Palette
 
-- Parchment outer: #e9e3d8 · Paper card: #faf9f6 · Inset panel: #f5f2ec
-- Ink: #1c1917 (header bar, code blocks, headings)
+- Warm-gray outer: #eceae5 · Paper header/card: #faf9f6 · Inset panel: #f5f2ec
+- Ink: #1c1917 (headings and code blocks only — surfaces stay light)
 - Amber: #b45309 (chips, links, CTAs) · #d97706 (amber on ink)
 - Body text: #44403c · Hairlines: #e7e5e4 · Muted mono: #a8a29e
 - Fonts: Geist (text) + Geist Mono (chips, IDs, code, link labels)
