@@ -54,7 +54,7 @@ carry plain-language facts — no code or YAML blocks in newsletters.
 
 ## Brand Palette
 
-- Warm-brown outer: #f0e7d8 + citation-network texture · Paper card: #faf9f6 · Inset panel: #f5f2ec
+- Warm-brown outer: #f0e7d8 (flat) · Paper card: #faf9f6 · Inset panel: #f5f2ec
 - Ink: #1c1917 (type only — all surfaces stay light)
 - Amber: #b45309 (chips, links, CTAs) · #d97706 (amber on ink)
 - Body text: #44403c · Hairlines: #e7e5e4 · Muted mono: #a8a29e
