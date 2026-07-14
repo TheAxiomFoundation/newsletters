@@ -10,8 +10,10 @@ script always sends the complete set.
 
 The hosted form's Subscribe button uses Mailchimp's newer theme class
 (.formEmailButton) with a hardcoded gray "!important" rule that the
-forms_buttons API selector cannot reach. The signup_message content accepts
-HTML, so the config prepends a small <style> override to recolor it amber.
+forms_buttons API selector cannot reach, and the API offers no way to load
+custom fonts. The signup_message content accepts HTML, so the config prepends
+a <style> override that recolors the button amber and loads Geist (the
+newsletter's face) for the form body.
 
 Usage:
     python scripts/style_signup_form.py
@@ -29,11 +31,6 @@ WORDMARK_URL = (
     "https://raw.githubusercontent.com/TheAxiomFoundation/axiom-brand/main/"
     "png/wordmark/axiom-full-gradient-2400w.png"
 )
-TEXTURE_URL = (
-    "https://raw.githubusercontent.com/TheAxiomFoundation/newsletters/main/"
-    "assets/images/citation-network-bg.png"
-)
-
 # Newsletter palette (see CLAUDE.md "Axiom Color Scheme")
 WARM_BROWN = "#f0e7d8"  # outer background
 PAPER = "#faf9f6"  # content card
@@ -45,9 +42,26 @@ MUTED = "#a8a29e"  # help text
 WHITE = "#ffffff"  # masthead
 
 # Overrides Mailchimp's theme button (gray, !important) that the forms_buttons
-# selector cannot reach; rendered inline ahead of the signup message text.
-BUTTON_OVERRIDE = (
+# selector cannot reach, and loads the newsletter's Geist face for body text;
+# rendered inline ahead of the signup message text. The @import must stay
+# first inside the style block or browsers ignore it.
+FONT_STACK = "'Geist', Helvetica, Arial, sans-serif"
+STYLE_OVERRIDE = (
     "<style>"
+    "@import url('https://fonts.googleapis.com/css2"
+    "?family=Geist:wght@400;500;600&display=swap');"
+    "body,p,div,label,legend,input,select,textarea,h1,h2,h3,"
+    ".formEmailButton,.formEmailButton span{"
+    f"font-family:{FONT_STACK} !important;}}"
+    # Mailchimp merges style options per selector, so a removed
+    # background-image would otherwise survive on the page background.
+    "body{background-image:none !important;}"
+    # The masthead h1's 28px line box clips the taller wordmark; collapse the
+    # line and let padding set the header height, with the newsletter's
+    # hairline underneath.
+    "h1.masthead{line-height:0 !important;padding:22px 0 18px !important;"
+    "margin:0 0 24px !important;border-bottom:1px solid #e7e5e4;}"
+    "h1.masthead img{vertical-align:middle !important;}"
     ".formEmailButton,.formEmailButton span{"
     f"background-color:{AMBER} !important;color:{WHITE} !important;"
     "border-radius:7px !important;}"
@@ -60,7 +74,10 @@ BUTTON_OVERRIDE = (
 FORM_CONFIG = {
     "header": {
         "image_url": WORDMARK_URL,
-        "image_width": "280",
+        # Explicit width and height matching the PNG's 2400x849 aspect ratio,
+        # sized down so the header container does not crop the lockup.
+        "image_width": "200",
+        "image_height": "71",
         "image_alt": "Axiom Foundation",
         "image_link": "https://axiom-foundation.org",
         "image_align": "center",
@@ -72,7 +89,7 @@ FORM_CONFIG = {
     "contents": [
         {
             "section": "signup_message",
-            "value": BUTTON_OVERRIDE
+            "value": STYLE_OVERRIDE
             + (
                 "Occasional updates from the Axiom Foundation — new corpora, "
                 "engine releases, events, and research. Sent when there is "
@@ -93,9 +110,7 @@ FORM_CONFIG = {
             "selector": "page_background",
             "options": [
                 {"property": "background-color", "value": WARM_BROWN},
-                {"property": "background-image", "value": f"url('{TEXTURE_URL}')"},
-                {"property": "background-repeat", "value": "repeat"},
-                {"property": "background-position", "value": "top center"},
+                {"property": "background-image", "value": "none"},
             ],
         },
         {
@@ -108,7 +123,7 @@ FORM_CONFIG = {
         {
             "selector": "page_outer_wrapper",
             "options": [
-                {"property": "background-color", "value": PAPER},
+                {"property": "background-color", "value": WHITE},
                 {"property": "border-radius", "value": "14px"},
                 {"property": "border", "value": "1px solid #e7e5e4"},
             ],
@@ -116,7 +131,7 @@ FORM_CONFIG = {
         {
             "selector": "body_background",
             "options": [
-                {"property": "background-color", "value": PAPER},
+                {"property": "background-color", "value": WHITE},
                 {"property": "color", "value": BODY},
             ],
         },
