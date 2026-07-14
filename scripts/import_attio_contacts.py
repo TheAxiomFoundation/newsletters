@@ -2,8 +2,10 @@
 
 Pulls every person on the Attio list (default: July '26 Launch Webinar
 Invites), resolves their company reference to a company name, and
-batch-imports them into the Mailchimp audience as subscribed members with
-FNAME/LNAME/ORG/ROLE merge fields (matching the signup form's fields).
+batch-imports them into the main Axiom Foundation audience as subscribed
+members with FNAME/LNAME/ORG/ROLE merge fields (matching the signup form's
+fields), tagged with the cohort name so they stay distinguishable from
+organic subscribers.
 
 Re-runnable: existing members are updated, not duplicated.
 
@@ -22,7 +24,8 @@ import urllib.request
 from concurrent.futures import ThreadPoolExecutor
 
 ATTIO_LIST_ID = "f259205e-7e4c-42f2-87df-a03dfdf46afd"  # July '26 Launch Webinar Invites
-MAILCHIMP_AUDIENCE_ID = "027d09cbc1"  # July 26 Launch Webinar Invites
+MAILCHIMP_AUDIENCE_ID = "fbea2dd394"  # Axiom Foundation (main audience)
+MEMBER_TAG = "July 26 Launch Webinar Invites"
 MAILCHIMP_DC = "us12"
 BATCH_SIZE = 500  # Mailchimp's max members per batch-subscribe call
 
@@ -126,6 +129,7 @@ def build_members(people, companies):
             {
                 "email_address": email,
                 "status": "subscribed",
+                "tags": [MEMBER_TAG],
                 "merge_fields": {
                     "FNAME": name.get("first_name") or "",
                     "LNAME": name.get("last_name") or "",
