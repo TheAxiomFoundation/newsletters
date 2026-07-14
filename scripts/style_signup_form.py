@@ -92,9 +92,8 @@ FORM_CONFIG = {
             "section": "signup_message",
             "value": STYLE_OVERRIDE
             + (
-                "Occasional updates from the Axiom Foundation — new corpora, "
-                "engine releases, events, and research. Sent when there is "
-                "something concrete to report."
+                "Subscribe to updates from the Axiom Foundation — "
+                "newsletters, product releases, research, and more."
             ),
         },
         {
