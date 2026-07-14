@@ -62,6 +62,7 @@ STYLE_OVERRIDE = (
     "h1.masthead{line-height:0 !important;padding:22px 0 18px !important;"
     "margin:0 0 24px !important;border-bottom:1px solid #e7e5e4;}"
     "h1.masthead img{vertical-align:middle !important;}"
+    f"h2{{color:{INK} !important;}}"
     ".formEmailButton,.formEmailButton span{"
     f"background-color:{AMBER} !important;color:{WHITE} !important;"
     "border-radius:7px !important;}"
@@ -100,9 +101,16 @@ FORM_CONFIG = {
             "section": "signup_thank_you_title",
             "value": "Subscribed — see you in the next edition.",
         },
+        # This renders on the unsubscribe form page (not the confirmation),
+        # and is the only content slot there, so it carries the style
+        # override too — otherwise that page keeps the gray theme button.
         {
             "section": "unsub_message",
-            "value": "You have been unsubscribed. You can rejoin any time.",
+            "value": STYLE_OVERRIDE
+            + (
+                "Enter your email address to unsubscribe. "
+                "You can rejoin any time."
+            ),
         },
     ],
     "styles": [
