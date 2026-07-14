@@ -40,12 +40,12 @@ def load_env(path=".env"):
                     os.environ.setdefault(key.strip(), value.strip().strip('"'))
 
 
-def request_json(url, headers, body=None):
+def request_json(url, headers, body=None, method=None):
     req = urllib.request.Request(
         url,
         data=json.dumps(body).encode() if body is not None else None,
         headers={**headers, "Content-Type": "application/json"},
-        method="POST" if body is not None else "GET",
+        method=method or ("POST" if body is not None else "GET"),
     )
     try:
         with urllib.request.urlopen(req) as response:
@@ -62,12 +62,13 @@ def attio(path, body=None):
     )
 
 
-def mailchimp(path, body=None):
+def mailchimp(path, body=None, method=None):
     auth = base64.b64encode(f"anystring:{os.environ['MAILCHIMP_API_KEY']}".encode())
     return request_json(
         f"https://{MAILCHIMP_DC}.api.mailchimp.com/3.0{path}",
         {"Authorization": f"Basic {auth.decode()}"},
         body,
+        method,
     )
 
 
@@ -143,7 +144,7 @@ def build_members(people, companies):
 
 def ensure_merge_fields():
     existing = {
-        f["tag"]
+        f["tag"]: f
         for f in mailchimp(f"/lists/{MAILCHIMP_AUDIENCE_ID}/merge-fields?count=50")[
             "merge_fields"
         ]
@@ -155,6 +156,21 @@ def ensure_merge_fields():
                 {"tag": tag, "name": name, "type": "text", "required": False},
             )
             print(f"Added merge field {tag}")
+    return existing
+
+
+def set_required(fields, tags, required):
+    """Mailchimp enforces required merge fields on API imports too, and Attio
+    data has gaps (empty roles), so imports run with the flags relaxed and
+    restore them afterwards to keep the signup form's fields required."""
+    for tag in tags:
+        field = fields.get(tag)
+        if field:
+            mailchimp(
+                f"/lists/{MAILCHIMP_AUDIENCE_ID}/merge-fields/{field['merge_id']}",
+                {"required": required},
+                method="PATCH",
+            )
 
 
 def main():
@@ -168,20 +184,25 @@ def main():
     members, skipped = build_members(people, companies)
     print(f"Members to import: {len(members)} (skipped {skipped} without email)")
 
-    ensure_merge_fields()
+    fields = ensure_merge_fields()
+    required_tags = [t for t, f in fields.items() if f.get("required")]
+    set_required(fields, required_tags, False)
 
-    created = updated = errored = 0
-    for start in range(0, len(members), BATCH_SIZE):
-        chunk = members[start : start + BATCH_SIZE]
-        result = mailchimp(
-            f"/lists/{MAILCHIMP_AUDIENCE_ID}",
-            {"members": chunk, "update_existing": True},
-        )
-        created += result["total_created"]
-        updated += result["total_updated"]
-        errored += result["error_count"]
-        for error in result["errors"][:5]:
-            print(f"  error: {error['email_address']}: {error['error']}")
+    try:
+        created = updated = errored = 0
+        for start in range(0, len(members), BATCH_SIZE):
+            chunk = members[start : start + BATCH_SIZE]
+            result = mailchimp(
+                f"/lists/{MAILCHIMP_AUDIENCE_ID}",
+                {"members": chunk, "update_existing": True},
+            )
+            created += result["total_created"]
+            updated += result["total_updated"]
+            errored += result["error_count"]
+            for error in result["errors"][:5]:
+                print(f"  error: {error['email_address']}: {error['error']}")
+    finally:
+        set_required(fields, required_tags, True)
 
     print(f"Done: {created} created, {updated} updated, {errored} errors")
 
