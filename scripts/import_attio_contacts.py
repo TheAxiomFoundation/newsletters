@@ -10,11 +10,14 @@ organic subscribers.
 Re-runnable: existing members are updated, not duplicated.
 
 Usage:
-    python scripts/import_attio_contacts.py
+    python scripts/import_attio_contacts.py                # webinar invites (default)
+    python scripts/import_attio_contacts.py \
+        --attio-list-id <list-uuid> --tag "Cohort Tag"     # any other Attio list
 
 Requires ATTIO_API_KEY and MAILCHIMP_API_KEY in the environment or .env.
 """
 
+import argparse
 import base64
 import json
 import os
@@ -23,9 +26,9 @@ import urllib.error
 import urllib.request
 from concurrent.futures import ThreadPoolExecutor
 
-ATTIO_LIST_ID = "f259205e-7e4c-42f2-87df-a03dfdf46afd"  # July '26 Launch Webinar Invites
+DEFAULT_ATTIO_LIST_ID = "f259205e-7e4c-42f2-87df-a03dfdf46afd"  # July '26 Launch Webinar Invites
+DEFAULT_MEMBER_TAG = "July 26 Launch Webinar Invites"
 MAILCHIMP_AUDIENCE_ID = "fbea2dd394"  # Axiom Foundation (main audience)
-MEMBER_TAG = "July 26 Launch Webinar Invites"
 MAILCHIMP_DC = "us12"
 BATCH_SIZE = 500  # Mailchimp's max members per batch-subscribe call
 
@@ -80,11 +83,11 @@ def first_value(values, attribute, key=None):
     return active[0].get(key) if key else active[0]
 
 
-def fetch_people():
+def fetch_people(attio_list_id):
     record_ids, offset = [], 0
     while True:
         batch = attio(
-            f"/lists/{ATTIO_LIST_ID}/entries/query",
+            f"/lists/{attio_list_id}/entries/query",
             {"limit": 500, "offset": offset},
         )["data"]
         record_ids += [e["parent_record_id"] for e in batch]
@@ -117,7 +120,7 @@ def company_names(people):
         return dict(pool.map(fetch, ids))
 
 
-def build_members(people, companies):
+def build_members(people, companies, member_tag):
     members, skipped = [], 0
     for values in people:
         email = first_value(values, "email_addresses", "email_address")
@@ -130,7 +133,7 @@ def build_members(people, companies):
             {
                 "email_address": email,
                 "status": "subscribed",
-                "tags": [MEMBER_TAG],
+                "tags": [member_tag],
                 "merge_fields": {
                     "FNAME": name.get("first_name") or "",
                     "LNAME": name.get("last_name") or "",
@@ -174,14 +177,19 @@ def set_required(fields, tags, required):
 
 
 def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--attio-list-id", default=DEFAULT_ATTIO_LIST_ID)
+    parser.add_argument("--tag", default=DEFAULT_MEMBER_TAG)
+    args = parser.parse_args()
+
     load_env()
     for key in ("ATTIO_API_KEY", "MAILCHIMP_API_KEY"):
         if not os.environ.get(key):
             sys.exit(f"{key} must be set (see .env)")
 
-    people = fetch_people()
+    people = fetch_people(args.attio_list_id)
     companies = company_names(people)
-    members, skipped = build_members(people, companies)
+    members, skipped = build_members(people, companies, args.tag)
     print(f"Members to import: {len(members)} (skipped {skipped} without email)")
 
     fields = ensure_merge_fields()
