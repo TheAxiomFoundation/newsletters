@@ -31,8 +31,8 @@ All newsletter HTML files follow this pattern:
 The design borrows Axiom's own vernacular (edition numbering, mono labels,
 artifact chips) rather than a generic marketing layout — but stays plain-language:
 no code blocks. Light and paper-first, matching axiom-foundation.org: warm-gray
-outer with the citation-network texture, paper card, and a white masthead
-mirroring the site header; ink appears only in type — no dark surfaces.
+outer, paper card, and a white masthead mirroring the site header; ink appears
+only in type — no dark surfaces.
 
 1. **Inline Styles**: All styling is inline (required for email compatibility)
 2. **Fonts**: Geist (headings/body) + **Geist Mono** (edition number, chips,
@@ -40,9 +40,7 @@ mirroring the site header; ink appears only in type — no dark surfaces.
    (`'SFMono-Regular', Menlo, Consolas, monospace`)
 3. **Max Width**: 600px centered container, 14px radius
 4. **Axiom Color Scheme** (from [axiom-brand](https://github.com/TheAxiomFoundation/axiom-brand)):
-   - Warm brown (outer background): `#f0e7d8`, overlaid with the app's
-     citation-network texture (`assets/images/citation-network-bg.png`, applied
-     as a tiling background-image on the wrapper with `#f0e7d8` fallback)
+   - Warm brown (outer background): flat `#f0e7d8`
    - Paper (content card): `#faf9f6` · Inset panel: `#f5f2ec`
    - Masthead: white `#ffffff` like the site header — gradient wordmark, amber
      edition number, 1px `#e7e5e4` hairline below (no bands, no fills)
@@ -132,8 +130,8 @@ Never use `refs/heads/` in URLs — it can break rendering in Mailchimp
   activity ("we worked on encodings")
 - Audience: policy technologists, benefits-delivery teams, civic-tech engineers,
   funders
-- Standing footer links: Website (axiom-foundation.org), GitHub
-  (github.com/TheAxiomFoundation), Contact (hello@axiom-foundation.org)
+- Standing footer links: Website (axiom-foundation.org) and Contact
+  (hello@axiom-foundation.org)
 
 ## File Naming Conventions
 
