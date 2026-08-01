@@ -30,7 +30,7 @@ All newsletter HTML files follow this pattern:
 
 The design borrows Axiom's own vernacular (edition numbering, mono labels,
 artifact chips) rather than a generic marketing layout — but stays plain-language:
-no code blocks. Light and paper-first, matching axiom-foundation.org: warm-gray
+no code blocks. Light and paper-first, matching axiom.org: warm-gray
 outer, paper card, and a white masthead mirroring the site header; ink appears
 only in type — no dark surfaces.
 
@@ -100,7 +100,7 @@ Email clients fetch images from URLs - they cannot resolve relative paths. Alway
 <img src="../assets/images/dashboard.png">
 
 <!-- ✅ CORRECT - absolute URL -->
-<img src="https://raw.githubusercontent.com/TheAxiomFoundation/newsletters/main/assets/images/dashboard.png">
+<img src="https://raw.githubusercontent.com/TheAxiomFoundation/newsletters/main/assets/images/2026-07-28-axiom-app-field-view.png">
 ```
 
 For images on a feature branch, use the branch name (but merge before sending so
@@ -130,7 +130,7 @@ Never use `refs/heads/` in URLs — it can break rendering in Mailchimp
   activity ("we worked on encodings")
 - Audience: policy technologists, benefits-delivery teams, civic-tech engineers,
   funders
-- Standing footer links: Website (axiom-foundation.org) and Contact
+- Standing footer links: Website (axiom.org) and Contact
   (hello@axiom-foundation.org)
 
 ## File Naming Conventions
