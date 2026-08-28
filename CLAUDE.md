@@ -56,10 +56,15 @@ only in type — no dark surfaces.
      code or YAML.
    - **Masthead nameplate + edition line**: the newsletter's name, **`FOR ALL`**,
      in amber (`#b45309`, uppercase, weight 600, `0.12em` tracking) above a muted
-     `MONTHLY · Nº 0NN · YYYY-MM-DD` line (`#a8a29e`, uppercase), both Geist
+     `Nº 0NN · YYYY-MM-DD` line (`#a8a29e`, uppercase), both Geist
      Mono, right-aligned in the white masthead. The name reads the ∀ in the
      wordmark aloud and echoes the tagline, so the glyph itself is never repeated
      on the right — the wordmark already carries it a few inches away.
+
+     **Nº 001 also carries a one-time `WELCOME TO FOR ALL` block** above the
+     feature — an amber mono label, one paragraph naming the newsletter and its
+     five sections, and a hairline. It is not in the template and Nº 002 does not
+     repeat it.
 
      **The monthly series starts at Nº 001 with 2026-09-10.** The two July
      editions (`2026-07-15-launch-reception`, `2026-07-28-launch`) were event
