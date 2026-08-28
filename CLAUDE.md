@@ -62,7 +62,7 @@ only in type — no dark surfaces.
      on the right — the wordmark already carries it a few inches away.
 
      **Nº 001 also carries a one-time welcome block** above the feature — the
-     amber ∀ mark at 20px (`assets/images/axiom-mark-amber.png`, transparent
+     amber ∀ mark at 14px (`assets/images/axiom-mark-amber.png`, transparent
      PNG, `alt=""` because the sentence beneath carries the meaning), a 20px
      standfirst welcoming the reader, and a hairline. It is not in the template
      and Nº 002 does not repeat it.
