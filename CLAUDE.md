@@ -54,13 +54,30 @@ only in type — no dark surfaces.
      a light inset panel — `#f5f2ec`, 1px `#e7e5e4` border, 3px amber left edge,
      mono uppercase label in amber, headline detail in ink. Plain language, no
      code or YAML.
-   - **Edition number**: `Nº 0NN · YYYY-MM-DD` in Geist Mono, amber, in the
-     white masthead — increments every send.
+   - **Masthead nameplate + edition line**: the newsletter's name, **`FOR ALL`**,
+     in amber (`#b45309`, uppercase, weight 600, `0.12em` tracking) above a muted
+     `Nº 0NN · YYYY-MM-DD` line (`#a8a29e`, uppercase), both Geist
+     Mono, right-aligned in the white masthead. The name reads the ∀ in the
+     wordmark aloud and echoes the tagline, so the glyph itself is never repeated
+     on the right — the wordmark already carries it a few inches away.
+
+     **Nº 001 also carries a one-time welcome block** above the feature — the
+     amber ∀ mark at 14px (`assets/images/axiom-mark-amber.png`, transparent
+     PNG, `alt=""` because the sentence beneath carries the meaning), a 20px
+     standfirst welcoming the reader, and a hairline. It is not in the template
+     and Nº 002 does not repeat it.
+
+     **The monthly series starts at Nº 001 with 2026-09-10.** The two July
+     editions (`2026-07-15-launch-reception`, `2026-07-28-launch`) were event
+     invitations, not issues of the monthly newsletter, and they are not part of
+     this numbering. A one-off or special edition swaps the
+     nameplate for what it actually is — `LAUNCH BRIEFING`, `SPECIAL EDITION` —
+     and takes no number in the monthly series.
    - **Headline accent**: the key word or phrase of the H1 in amber `#b45309`
      (mirrors the site's "Computable law for all." treatment).
    - **Artifact chips**: each story row is labeled by what kind of artifact it is
-     (`corpus`, `engine`, `api`, `event`, `research`) — lowercase mono chip with
-     1px `#d9b28a` border. Structure encodes content type, never decoration.
+     (`FEATURE`, `PRODUCT`, `EVENTS`, `READING`, `FUNDING`) — **uppercase** mono chip
+     with 1px `#d9b28a` border. Structure encodes content type, never decoration.
    - **One CTA button** per edition (amber, hero). All other links are mono
      arrow-links (`label →`) in amber.
    - **∀ note**: optional standing mission note in an inset panel with a 3px
