@@ -54,8 +54,16 @@ only in type — no dark surfaces.
      a light inset panel — `#f5f2ec`, 1px `#e7e5e4` border, 3px amber left edge,
      mono uppercase label in amber, headline detail in ink. Plain language, no
      code or YAML.
-   - **Edition number**: `Nº 0NN · YYYY-MM-DD` in Geist Mono, amber, in the
-     white masthead — increments every send.
+   - **Masthead label + edition number**: a muted `MONTHLY NEWSLETTER` line
+     (`#a8a29e`, uppercase) above `Nº 0NN · YYYY-MM-DD` in amber, both Geist
+     Mono, right-aligned in the white masthead.
+
+     **The monthly series starts at Nº 001 with 2026-09-10.** The two July
+     editions (`2026-07-15-launch-reception`, `2026-07-28-launch`) were event
+     invitations, not issues of the monthly newsletter, and they are not part of
+     this numbering. A one-off or special edition swaps the label for what it
+     actually is — `LAUNCH BRIEFING`, `SPECIAL EDITION` — and takes no number in
+     the monthly series.
    - **Headline accent**: the key word or phrase of the H1 in amber `#b45309`
      (mirrors the site's "Computable law for all." treatment).
    - **Artifact chips**: each story row is labeled by what kind of artifact it is
