@@ -4,10 +4,34 @@ import sys
 from pathlib import Path
 
 import click
+from dotenv import find_dotenv, load_dotenv
 
 from .audience import AudienceType
 from .mailchimp_client import MailchimpClient
 from .uploader import NewsletterUploader
+
+
+def _load_credentials():
+    """Load MAILCHIMP_* from a .env file, without overriding the real environment.
+
+    Called from run() rather than at import, and rather than from inside main():
+    click resolves the ``envvar=`` options before the command body executes, so
+    loading has to happen ahead of the invocation. Keeping it out of import also
+    leaves main() testable with an unpopulated environment.
+
+    Looks upward from the working directory first, so running from anywhere inside
+    the repo works, then falls back to the repo root next to this package. Values
+    already set in the environment win, which keeps --api-key and an exported
+    variable ahead of the file.
+    """
+    found = find_dotenv(usecwd=True)
+    if found:
+        load_dotenv(found, override=False)
+        return
+
+    repo_env = Path(__file__).resolve().parents[2] / ".env"
+    if repo_env.is_file():
+        load_dotenv(repo_env, override=False)
 
 
 @click.command()
@@ -165,5 +189,11 @@ def main(html_file, audience, subject, preview, title, api_key, list_id, campaig
         sys.exit(1)
 
 
-if __name__ == "__main__":
+def run():
+    """Console-script entry point: load .env, then hand off to the command."""
+    _load_credentials()
     main()
+
+
+if __name__ == "__main__":
+    run()

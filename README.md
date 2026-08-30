@@ -19,11 +19,18 @@ The CLI then lives at `.venv/bin/upload-newsletter`. Call it by that path, or
 
 ## Quick Start
 
-1. Set your Mailchimp credentials:
-```bash
-export MAILCHIMP_API_KEY="your-key-usX"   # datacenter suffix required
-export MAILCHIMP_LIST_ID="your-list-id"
+1. Put your Mailchimp credentials in `.env` at the repo root (gitignored):
+
 ```
+MAILCHIMP_API_KEY=your-key-usX   # the datacenter suffix is required
+MAILCHIMP_LIST_ID=your-list-id
+```
+
+The CLI loads that file on its own, so there is nothing to source. A real
+environment variable or an explicit `--api-key` still wins over the file.
+
+The API key comes from Mailchimp under **Account & billing → Extras → API keys**,
+and the audience ID from **Audience → Settings → Audience name and defaults**.
 
 2. Create a newsletter HTML file in `editions/` (e.g., `2026-08-01.html`). Start
    from the most recent edition, or from
@@ -79,7 +86,8 @@ ruff check src/ tests/
 - `editions/` - Newsletter HTML files, one per send (`YYYY-MM-DD.html`)
 - `templates/` - The Axiom-styled base template
 - `assets/images/` - Newsletter images (referenced by absolute raw.githubusercontent URLs)
-- `.env` - Contains `MAILCHIMP_API_KEY` / `MAILCHIMP_LIST_ID` (gitignored)
+- `.env` - Contains `MAILCHIMP_API_KEY` / `MAILCHIMP_LIST_ID` (gitignored, loaded
+  automatically by the CLI)
 
 ## Brand
 
