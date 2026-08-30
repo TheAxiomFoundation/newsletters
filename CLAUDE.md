@@ -76,7 +76,7 @@ only in type — no dark surfaces.
    - **Headline accent**: the key word or phrase of the H1 in amber `#b45309`
      (mirrors the site's "Computable law for all." treatment).
    - **Artifact chips**: each story row is labeled by what kind of artifact it is
-     (`FEATURE`, `PRODUCT`, `EVENTS`, `READING`, `FUNDING`) — **uppercase** mono chip
+     (`FEATURE`, `PRODUCT`, `EVENTS`, `MENTIONS`, `READING`, `FUNDING`) — **uppercase** mono chip
      with 1px `#d9b28a` border. Structure encodes content type, never decoration.
    - **One CTA button** per edition (amber, hero). All other links are mono
      arrow-links (`label →`) in amber.
