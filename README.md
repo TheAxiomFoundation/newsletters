@@ -6,9 +6,16 @@ with Axiom branding.
 
 ## Installation
 
+macOS ships `pip3`, not `pip`, and its system Python is not a good place to install
+into. Use a virtualenv in the repo — `.venv/` is gitignored:
+
 ```bash
-pip install -e ".[dev]"
+python3 -m venv .venv
+.venv/bin/pip install -e ".[dev]"
 ```
+
+The CLI then lives at `.venv/bin/upload-newsletter`. Call it by that path, or
+`source .venv/bin/activate` first and call it by name.
 
 ## Quick Start
 
@@ -24,7 +31,7 @@ export MAILCHIMP_LIST_ID="your-list-id"
 
 3. Upload to Mailchimp as a draft:
 ```bash
-upload-newsletter editions/2026-08-01.html \
+.venv/bin/upload-newsletter editions/2026-08-01.html \
   --audience all \
   --subject "Your Subject Line" \
   --preview "Preview text shown in inbox"
