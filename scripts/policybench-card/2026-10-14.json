@@ -1,0 +1,18 @@
+{
+  "title": "PolicyBench: how well do models compute benefits?",
+  "sub1": "Exact-match score, United States &middot; 50 models, 100 households",
+  "sub2": "Top 10 &middot; snapshot 2026-10-14",
+  "foot": "policybench.org &middot; a benchmark from the Axiom Foundation and PolicyEngine",
+  "rows": [
+    {"name": "OpenAI GPT-6 Sol", "score": 95.2},
+    {"name": "Anthropic Claude Opus 5.5", "score": 94.1},
+    {"name": "OpenAI GPT-5.6 Sol", "score": 93.1},
+    {"name": "Anthropic Claude Sonnet 5.5", "score": 91.7},
+    {"name": "OpenAI GPT-6 Astra", "score": 91.7},
+    {"name": "OpenAI GPT-6 Luna", "score": 91.6},
+    {"name": "Anthropic Claude Fable 5.1", "score": 90.9},
+    {"name": "MoonshotAI Kimi K3", "score": 90.6},
+    {"name": "OpenAI GPT-6.1 Sol", "score": 90.1},
+    {"name": "Muse Wonder", "score": 90.1}
+  ]
+}
