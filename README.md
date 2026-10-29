@@ -46,6 +46,18 @@ and the audience ID from **Audience → Settings → Audience name and defaults*
 
 4. Review the draft in Mailchimp and send when ready
 
+## Links
+
+Public Axiom links must use the page's axiom.org route. Find routes in
+[TheAxiomFoundation/axiom.org](https://github.com/TheAxiomFoundation/axiom.org)
+and check that they return a 200 response before uploading.
+
+The uploader rejects hosting addresses such as `*.vercel.app` and
+`theaxiomfoundation.github.io` before it calls Mailchimp, including draft
+updates. The HTML lint checks every edition and template, with no date cutoff;
+current editions contain no hosting addresses. See the "Links" section in
+`CLAUDE.md` for the full rule and reviewed exceptions.
+
 ## Audience Targeting
 
 - `--audience all` - All subscribers (the default choice until segments exist)

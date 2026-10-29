@@ -103,6 +103,29 @@ current styling and layout patterns. If `editions/` is empty, start from
    - Responsive table layout in footer (Mailchimp CAN-SPAM compliance)
    - Mailchimp merge tags in footer
    - External assets use full URLs (no relative paths)
+   - Axiom links use axiom.org routes (see "Links" below)
+
+### Links
+
+Public Axiom links go to axiom.org, never the address of the platform that hosts
+the page (Max, 2026-10-29: "we need a rule to never share vercel links publicly").
+A sent email can't be corrected.
+
+- Never link `*.vercel.app`, `vercel.com`, `theaxiomfoundation.github.io`,
+  `*.netlify.app`, `*.pages.dev`, `*.modal.run`, `*.run.app` or `*.appspot.com`.
+  Find the page's axiom.org route in
+  [TheAxiomFoundation/axiom.org](https://github.com/TheAxiomFoundation/axiom.org).
+- Curl each route for a 200 response before uploading. If the route isn't live,
+  deploy it before the send or cut the link.
+- Other people's sites keep their own addresses, including their `github.io`
+  pages.
+- `upload-newsletter` refuses hosting addresses before any Mailchimp call, both
+  for new campaigns and `--campaign-id` updates.
+- The CI lint checks every edition and template, with no date cutoff. Current
+  editions contain no hosting addresses.
+- The check in `src/newsletter_uploader/hosting_links.py` decodes HTML entities
+  and percent-escapes. It catches hosts in link text and image URLs too.
+- Put any reviewed exception in `ALLOWED_HOSTS` in that file.
 
 ## Email Compatibility
 
