@@ -53,8 +53,8 @@ Public Axiom links must use the page's axiom.org route. Find routes in
 and check that they return a 200 response before uploading.
 
 The uploader rejects hosting addresses such as `*.vercel.app` and
-`theaxiomfoundation.github.io` before it calls Mailchimp, including draft
-updates. The HTML lint checks every edition and template, with no date cutoff;
+`theaxiomfoundation.github.io` in the HTML, subject line, preview text or
+campaign title before it calls Mailchimp, including draft updates. The HTML lint checks every edition and template, with no date cutoff;
 current editions contain no hosting addresses. See the "Links" section in
 `CLAUDE.md` for the full rule and reviewed exceptions.
 

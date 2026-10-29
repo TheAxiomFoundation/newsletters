@@ -119,12 +119,16 @@ A sent email can't be corrected.
   deploy it before the send or cut the link.
 - Other people's sites keep their own addresses, including their `github.io`
   pages.
-- `upload-newsletter` refuses hosting addresses before any Mailchimp call, both
-  for new campaigns and `--campaign-id` updates.
+- `upload-newsletter` refuses hosting addresses in the HTML, subject line,
+  preview text or campaign title before any Mailchimp call, both for new
+  campaigns and `--campaign-id` updates.
 - The CI lint checks every edition and template, with no date cutoff. Current
   editions contain no hosting addresses.
-- The check in `src/newsletter_uploader/hosting_links.py` decodes HTML entities
-  and percent-escapes. It catches hosts in link text and image URLs too.
+- The check in `src/newsletter_uploader/hosting_links.py` reads a host the way a
+  browser does. It decodes HTML entities and percent-escapes, drops tabs and
+  newlines inside an attribute value, and folds Unicode dots (such as `。`),
+  full-width letters and invisible characters. It catches hosts in link text
+  and image URLs too.
 - Put any reviewed exception in `ALLOWED_HOSTS` in that file.
 
 ## Email Compatibility

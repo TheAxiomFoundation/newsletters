@@ -255,3 +255,30 @@ class TestCLI:
         assert "axiom-preview.vercel.app" in result.output
         assert "axiom.org" in result.output
         assert client.mock_calls == []
+
+    def test_cli_refuses_a_hosting_link_in_the_subject(self, runner, tmp_path, mocker):
+        """A hosting address in --subject stops the CLI before Mailchimp."""
+        html_path = tmp_path / "2026-11-03-global.html"
+        html_path.write_text("<html><body>Clean</body></html>")
+        client = mocker.patch("newsletter_uploader.cli.MailchimpClient").return_value
+
+        result = runner.invoke(
+            main,
+            [
+                str(html_path),
+                "--audience",
+                "all",
+                "--subject",
+                "New: axiom-preview.vercel.app",
+                "--preview",
+                "Preview",
+                "--api-key",
+                "test-key-us5",
+                "--list-id",
+                "test-list-id",
+            ],
+        )
+
+        assert result.exit_code == 1
+        assert "subject line" in result.output
+        assert client.mock_calls == []
