@@ -112,7 +112,8 @@ the page (Max, 2026-10-29: "we need a rule to never share vercel links publicly"
 A sent email can't be corrected.
 
 - Never link `*.vercel.app`, `vercel.com`, `theaxiomfoundation.github.io`,
-  `*.netlify.app`, `*.pages.dev`, `*.modal.run`, `*.run.app` or `*.appspot.com`.
+  `policyengine.github.io`, `*.netlify.app`, `*.pages.dev`, `*.modal.run`,
+  `*.run.app` or `*.appspot.com`.
   Find the page's axiom.org route in
   [TheAxiomFoundation/axiom.org](https://github.com/TheAxiomFoundation/axiom.org).
 - Curl each route for a 200 response before uploading. If the route isn't live,
@@ -125,10 +126,11 @@ A sent email can't be corrected.
 - The CI lint checks every edition and template, with no date cutoff. Current
   editions contain no hosting addresses.
 - The check in `src/newsletter_uploader/hosting_links.py` reads a host the way a
-  browser does. It decodes HTML entities and percent-escapes, drops tabs and
-  newlines inside an attribute value, and folds Unicode dots (such as `。`),
-  full-width letters and invisible characters. It catches hosts in link text
-  and image URLs too.
+  browser or reader does. It decodes HTML entities and percent-escapes, drops
+  tabs and newlines inside a URL attribute such as `href` or `src`, reads link
+  text through inline tags such as `<wbr>` and `<span>`, and folds Unicode dots
+  (such as `。`), full-width letters and invisible characters. It catches hosts
+  in link text and image URLs too.
 - Put any reviewed exception in `ALLOWED_HOSTS` in that file.
 
 ## Email Compatibility
