@@ -221,3 +221,64 @@ class TestCLI:
         )
         # File should not exist, so Click should error before we even try to upload
         assert result.exit_code != 0
+
+    @pytest.mark.parametrize("campaign_id", [None, "campaign123"])
+    def test_cli_refuses_hosting_links_before_mailchimp(
+        self, runner, tmp_path, mocker, campaign_id
+    ):
+        """The CLI refuses hosting links for new campaigns and draft updates."""
+        html_path = tmp_path / "2026-11-03-global.html"
+        html_path.write_text(
+            '<html><body><a href="https://axiom-preview.vercel.app/">'
+            "Dashboard</a></body></html>"
+        )
+        client = mocker.patch("newsletter_uploader.cli.MailchimpClient").return_value
+        args = [
+            str(html_path),
+            "--subject",
+            "Test",
+            "--preview",
+            "Preview",
+            "--api-key",
+            "test-key-us5",
+            "--list-id",
+            "test-list-id",
+        ]
+        if campaign_id:
+            args.extend(["--campaign-id", campaign_id])
+        else:
+            args.extend(["--audience", "all"])
+
+        result = runner.invoke(main, args)
+
+        assert result.exit_code == 1
+        assert "axiom-preview.vercel.app" in result.output
+        assert "axiom.org" in result.output
+        assert client.mock_calls == []
+
+    def test_cli_refuses_a_hosting_link_in_the_subject(self, runner, tmp_path, mocker):
+        """A hosting address in --subject stops the CLI before Mailchimp."""
+        html_path = tmp_path / "2026-11-03-global.html"
+        html_path.write_text("<html><body>Clean</body></html>")
+        client = mocker.patch("newsletter_uploader.cli.MailchimpClient").return_value
+
+        result = runner.invoke(
+            main,
+            [
+                str(html_path),
+                "--audience",
+                "all",
+                "--subject",
+                "New: axiom-preview.vercel.app",
+                "--preview",
+                "Preview",
+                "--api-key",
+                "test-key-us5",
+                "--list-id",
+                "test-list-id",
+            ],
+        )
+
+        assert result.exit_code == 1
+        assert "subject line" in result.output
+        assert client.mock_calls == []
