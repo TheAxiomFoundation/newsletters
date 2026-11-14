@@ -7,7 +7,7 @@ name = "axiom-newsletter-uploader"
 version = "0.1.0"
 description = "Upload Axiom Foundation newsletters to Mailchimp with audience targeting"
 readme = "README.md"
-requires-python = ">=3.8"
+requires-python = ">=3.11"
 authors = [
     {name = "The Axiom Foundation", email = "hello@axiom-foundation.org"}
 ]
@@ -47,9 +47,9 @@ addopts = [
 
 [tool.black]
 line-length = 88
-target-version = ['py38', 'py39', 'py310', 'py311']
+target-version = ['py311']
 
 [tool.ruff]
 line-length = 88
-target-version = "py38"
+target-version = "py311"
 select = ["E", "F", "I", "N", "W"]
